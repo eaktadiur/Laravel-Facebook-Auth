@@ -13,7 +13,8 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">New User</a></li>
+        <li><a href="{{ URL::route('user-list') }}">User List</a></li>
+        <li><a href="{{ URL::route('user-create') }}">New User</a></li>
         <li><a href="#">Search</a></li>
       </ul>
       
@@ -24,7 +25,7 @@
             {{ Auth::user()->email }}
             @endif <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#"> Logout</a></li>
+              <li><a href="{{ URL::route('logout') }}"> Logout</a></li>
             </ul>
           </li>
         </ul>

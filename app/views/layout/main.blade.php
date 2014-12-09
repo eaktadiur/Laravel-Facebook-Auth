@@ -35,5 +35,7 @@
 {{ HTML::script('js/jquery-migrate-1.2.1.min.js') }}
 <!-- Bootstrap Core JavaScript -->
 {{ HTML::script('js/bootstrap.min.js') }}
+{{ HTML::script('js/plugins/dataTables/jquery.dataTables.js') }}
+{{ HTML::script('js/plugins/dataTables/dataTables.bootstrap.js') }}
 </body>
 </html>
