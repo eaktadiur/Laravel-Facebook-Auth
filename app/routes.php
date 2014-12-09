@@ -16,11 +16,11 @@ Route::get('/', function()
 
 	if (Auth::check())
 	{
-		return View::make('hello');
+		return View::make('index');
 	}
 	else
 	{
-		return View::make('log-in');
+		return View::make('index');
 	}
 });
 

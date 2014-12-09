@@ -30,14 +30,14 @@ class AuthController extends \BaseController {
 		$oauth = new Hybrid_Auth(app_path().'/config/fb_auth.php');
 		$provider = $oauth->authenticate('Facebook');
 		$profile = $provider->getUserProfile();
-		return '<h1>'.$profile->displayName.'- <a href="logout">Log Out</a></h1>';
+		return View::make('index');
 	}
 
 	public function getLoggedOut()
 	{
 		$fbauth = new Hybrid_Auth(app_path().'/config/fb_auth.php');
 		$fbauth->logoutAllProviders();
-		return View::make('log-in');
+		return View::make('index');
 	}
 
 	
