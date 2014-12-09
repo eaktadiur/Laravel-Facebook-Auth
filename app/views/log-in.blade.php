@@ -2,6 +2,7 @@
 {{ HTML::style('css/bootstrap.min.css') }}
 <link rel="stylesheet" type="text/css" href="css/zocial.css" />
 <link href='http://fonts.googleapis.com/css?family=Pompiere' rel='stylesheet' type='text/css'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 <div class="container" style="margin-top:30px">
     <div class="row">
@@ -11,28 +12,38 @@
                     <h3 class="panel-title">Please Sign In</h3>
                 </div>
                 <div class="panel-body">
-                 {{ Form::open(array('route' => array('user-sign-in-post'))) }} 
-                 <fieldset>
-                    <div class="form-group">
-                        <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                   {{ Form::open(array('route' => array('user-sign-in-post'))) }} 
+                   <fieldset>
+
                         @if($errors->has('email'))
                         {{ $errors->first('email') }}
-                        @endif
+                        @endif<div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <input type="text" class="form-control" name="email" placeholder="email address">
+
                     </div>
-                    <div class="form-group">
-                        <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                        @if($errors->has('password'))
+                    <span class="help-block"></span>
+                     @if($errors->has('password'))
                         {{ $errors->first('password') }}
                         @endif
-                    </div>
-                    <input class="btn btn-lg btn-success btn-block" name="submit" type="submit" value="Login">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input  type="password" class="form-control" name="password" placeholder="Password">
 
-                </fieldset>
-                {{ Form::close() }}
-            </div>
+                    </div>
+                    <span class="help-block">Password error</span>
+                <div style="margin-top:10px" class="form-group">
+
+                                    <div class="col-sm-12 controls">
+                                      <input class="btn btn-success" name="submit" type="submit" value="Login">
+                                      <a id="btn-fblogin" href="fbauth" class="btn btn-primary">Login with Facebook</a>
+
+                                    </div>
+                                </div></fieldset>
+            {{ Form::close() }}
         </div>
-        <div><a href="fbauth" class="zocial facebook">Log in with Facebook</a></div>
-    </div>          
+    </div>
+</div>          
 </div>
 </div>
 
