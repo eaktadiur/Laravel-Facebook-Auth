@@ -69,15 +69,15 @@ class UserController extends \BaseController {
 		}
 		
 	}
-	 public function destroy($id)
-	 {
+	public function destroy($id)
+	{
 
-	 	User::find($id)->delete();
-	 	return Redirect::route('user-list')
-	 	->with('message', 'User Deleted Successfully')
-	 	->with('message_type', 'danger');
+		User::find($id)->delete();
+		return Redirect::route('user-list')
+		->with('message', 'User Deleted Successfully')
+		->with('message_type', 'danger');
 
-	 }
+	}
 	
 	public function getEdit($id)
 	{
@@ -98,14 +98,14 @@ class UserController extends \BaseController {
 		{
 
 			
-		    $user = User::find($id);
-            $user->name       = Input::get('name');
-            $user->contact    = Input::get('contact');
-            $user->save();
+			$user = User::find($id);
+			$user->name       = Input::get('name');
+			$user->contact    = Input::get('contact');
+			$user->save();
 
-            return Redirect::to('users')
-            ->with('message', 'User Updated Successfully!')
-	 	->with('message_type', 'success');
+			return Redirect::to('users')
+			->with('message', 'User Updated Successfully!')
+			->with('message_type', 'success');
 		}
 
 
@@ -123,20 +123,20 @@ class UserController extends \BaseController {
 		else
 		{
 			$auth = Auth::attempt(array(
-					'email' => Input::get('email'),
-					'password' => Input::get('password')
+				'email' => Input::get('email'),
+				'password' => Input::get('password')
 				));
-            if($auth){
-            	return Redirect::intended('/')
-            			->with('message', 'Sign in Successfully!')
-            			->with('message_type', 'success');
-            }
-            else{
-            	return Redirect::route('user-sign-in')
-            			->with('message', 'Unauthorised sign in')
-            			->with('message_type', 'danger')
-            		;
-            }
+			if($auth){
+				return Redirect::intended('/')
+				->with('message', 'Sign in Successfully!')
+				->with('message_type', 'success');
+			}
+			else{
+				return Redirect::route('user-sign-in')
+				->with('message', 'Unauthorised sign in')
+				->with('message_type', 'danger')
+				;
+			}
 
 		}
 
@@ -148,76 +148,85 @@ class UserController extends \BaseController {
 	/*
 		* this is the code for Facebook login
 	*/
-	public function getFacebookLogin( $auth=NULL )
-	{
-
-		if($auth =='auth')
+		public function getFacebookLogin( $auth=NULL )
 		{
-			
-			try
+
+			if($auth =='auth')
 			{
-				Hybrid_Endpoint::process();
+
+				try
+				{
+					Hybrid_Endpoint::process();
+				}
+				catch(exception $e)
+				{
+					return redirect::route('facebookAuth');
+				}
 			}
-			catch(exception $e)
+
+
+			$oauth = new Hybrid_Auth(app_path().'/config/fb_auth.php');
+			$provider = $oauth->authenticate('Facebook');
+			$profile = $provider->getUserProfile();
+			$user = User::where('email', '=', $profile->email);
+
+			if($user->count())
 			{
-				return redirect::route('facebookAuth');
+				$user = $user->firstOrFail();	
+				$user = User::find($user['id']);
+				Auth::login($user);
+
 			}
-		}
-		
+			else{
 
-		$oauth = new Hybrid_Auth(app_path().'/config/fb_auth.php');
-		$provider = $oauth->authenticate('Facebook');
-		$profile = $provider->getUserProfile();
-		
-		$user = User::where('email', '=', $profile->email);
-		if($user->count())
-		{
-			$user = $user->firstOrFail();	
-			$user = User::find($user['id']);
-			Auth::login($user);
-            if( Auth::check() ){
-            	return Redirect::route('user-list')
-            			->with('message', 'Sign in Successfully by Facebook !')
-            			->with('message_type', 'success');
-            }
-            else{
-            	return Redirect::route('user-sign-in')
-            			->with('message', 'Unauthorised sign in')
-            			->with('message_type', 'danger');
-            }
+				$user = new User;
+				$user->name       = $profile->email;
+				$user->username       = $profile->email;
+				$user->email       = $profile->email;
+				$user->password    = Hash::make($profile->email);;
+				$user->active    = 1;
+				$user->save();
+
+				$auth = Auth::attempt(array(
+					'email' => $profile->email,
+					'password' => $profile->email
+					));
+			}
+
+			if( Auth::check() ){
+				return Redirect::route('home')
+				->with('message', 'Sign in Successfully by Facebook !')
+				->with('message_type', 'success');
+			}
+			else{
+				return Redirect::route('user-sign-in')
+				->with('message', 'Account Not Authorized')
+				->with('message_type', 'danger');
+			}
+
 
 
 		}
-		else{
-			return Redirect::route('home')
-	            			->with('message', 'Account Not Authorized ')
-	            			->with('message_type', 'danger');	
+
+
+
+		public function getSignOut(){
+			Auth::logout();
+			return Redirect::route('home');
 		}
-		
-		
-		
+
+		public function userProfile($username){
+			$user = User::where('username', '=', $username);
+
+			if( $user->count() )
+			{
+				$user = $user->first();
+				return View::make('users.profile')->with('user', $user);
+			}
+
+			return App::abort(404);
+		}
+
+
 
 	}
-
-
-
-	public function getSignOut(){
-		Auth::logout();
-		return Redirect::route('home');
-	}
-
-	public function userProfile($username){
-		$user = User::where('username', '=', $username);
-
-		if( $user->count() )
-		{
-			$user = $user->first();
-			return View::make('users.profile')->with('user', $user);
-		}
-
-		return App::abort(404);
-	}
-
-	
-
-}

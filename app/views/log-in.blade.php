@@ -15,23 +15,24 @@
                    {{ Form::open(array('route' => array('user-sign-in-post'))) }} 
                    <fieldset>
 
-                        @if($errors->has('email'))
-                        {{ $errors->first('email') }}
-                        @endif<div class="input-group">
+                       
+                       <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
                         <input type="text" class="form-control" name="email" placeholder="email address">
 
                     </div>
-                    <span class="help-block"></span>
-                     @if($errors->has('password'))
-                        {{ $errors->first('password') }}
-                        @endif
+                    <span class="help-block"> @if($errors->has('email'))
+                        {{ $errors->first('email') }}</span>
+                      @endif
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                         <input  type="password" class="form-control" name="password" placeholder="Password">
 
                     </div>
-                    <span class="help-block">Password error</span>
+                    <span class="help-block">
+                        @if($errors->has('password'))
+                        {{ $errors->first('password') }}
+                        @endif</span>
                 <div style="margin-top:10px" class="form-group">
 
                                     <div class="col-sm-12 controls">
