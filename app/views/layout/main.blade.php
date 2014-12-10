@@ -13,14 +13,15 @@
   </title>
 
   {{ HTML::style('css/bootstrap.min.css') }}
+  {{ HTML::style('css/custom.css') }}
 
 </head>
 <body>
 
 
 
- @include('layout.nav')
- <div class="container">
+
+
    @if(Session::has('message'))
    <div class="alert alert-{{ Session::get('message_type') }}">
     <span type="button" class="close" data-dismiss="alert">&times;</span>
@@ -29,13 +30,13 @@
   @endif
   
   @yield('body-content')
-</div>
+
 <!-- jQuery -->
 {{ HTML::script('js/jquery-1.9.1.min.js') }}
 {{ HTML::script('js/jquery-migrate-1.2.1.min.js') }}
 <!-- Bootstrap Core JavaScript -->
 {{ HTML::script('js/bootstrap.min.js') }}
-{{ HTML::script('js/plugins/dataTables/jquery.dataTables.js') }}
-{{ HTML::script('js/plugins/dataTables/dataTables.bootstrap.js') }}
+<!-- {{ HTML::script('js/plugins/dataTables/jquery.dataTables.js') }} -->
+<!-- {{ HTML::script('js/plugins/dataTables/dataTables.bootstrap.js') }} -->
 </body>
 </html>

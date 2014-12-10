@@ -1,0 +1,6 @@
+.top-bar{background: #1070B3; height: 23px;}
+.top-nav{height: 302px; }
+.top-img{background: url('../img/top-img.png'); background-size: 100% auto; background-repeat: no-repeat;}
+.top-img h2, p{color: white;}
+.sub-header{ background: url('../img/sub-header.png'); height: 300px; background-size: 100% auto; background-repeat: no-repeat;}
+.footer{height: 474px; background: #4D4D4F;}
