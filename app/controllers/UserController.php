@@ -34,6 +34,12 @@ class UserController extends \BaseController {
 		->with('title', 'New User');
 	}
 
+	public function getCreateReferralUser($ref)
+	{
+		return View::make('users.add', array('referal'=>$ref) )
+		->with('title', 'New User');
+	}
+
 	public function postCreate()
 	{
 
@@ -46,26 +52,30 @@ class UserController extends \BaseController {
 		}
 		else
 		{
-			$name             = Input::get('name');
-			$contact          = Input::get('contact');
-			$email            = Input::get('email');
-			$username         = Input::get('username');
-			$password         = Input::get('password');
-			$code         	  = str_random(60);
-			$active       	  = 1;			
+			$name                   = Input::get('name');
+			$contact                = Input::get('contact');
+			$email                  = Input::get('email');
+			$username               = Input::get('username');
+			$referance_by           = Input::get('referance_by');
+			$password               = Input::get('password');			
+			$code         	        = str_random(60);
+			$active       	        = 1;			
 
-			$user             = new User;
-			$user->name       = $name ;
-			$user->contact    = $contact;
-			$user->email      = $email;
-			$user->username   = $username;
-			$user->password   = Hash::make($password);
-			$user->code       = $code;
-			$user->active     = $active ;
+			$user             		= new User;
+			$user->name       		= $name ;
+			$user->contact    		= $contact;
+			$user->email      		= $email;
+			$user->username  		= $username;
+			$user->password  		= Hash::make($password);
+			$user->referance_token  = str_random(25);
+			$user->referance_by  	= $referance_by;
+			$user->code       		= $code;
+			$user->active    		= $active ;
+			$user->role             = 'user';
 
 			$user->save();
 
-			return Redirect::route('user-list')->with('message', 'New User created Successfully!')->with('message_type', 'success');
+			return Redirect::route('home')->with('message', 'New User created Successfully!')->with('message_type', 'success');
 		}
 		
 	}
@@ -122,6 +132,7 @@ class UserController extends \BaseController {
 		}
 		else
 		{
+
 			$auth = Auth::attempt(array(
 				'email' => Input::get('email'),
 				'password' => Input::get('password')
@@ -167,6 +178,15 @@ class UserController extends \BaseController {
 
 			$oauth = new Hybrid_Auth(app_path().'/config/fb_auth.php');
 			$provider = $oauth->authenticate('Facebook');
+
+			//  $provider->api()->api("/me/feed", "post", array(
+			// 	"message" => "Hi there",
+			// 	"picture" => "http://www.mywebsite.com/path/to/an/image.jpg",
+			// 	"link" => "http://www.mywebsite.com/path/to/a/page/",
+			// 	"name" => "My page name",
+			// 	"caption" => "And caption"
+			// ));
+			
 			$profile = $provider->getUserProfile();
 			$user = User::where('email', '=', $profile->email);
 
@@ -179,12 +199,14 @@ class UserController extends \BaseController {
 			}
 			else{
 
-				$user = new User;
-				$user->name       = $profile->email;
-				$user->username       = $profile->email;
-				$user->email       = $profile->email;
-				$user->password    = Hash::make($profile->email);;
-				$user->active    = 1;
+				$user 						= new User;
+				$user->name       			= $profile->email;
+				$user->username       		= $profile->email;
+				$user->email       			= $profile->email;
+				$user->password   			= Hash::make($profile->email);
+				$user->referance_token    	= str_random(25);
+				$user->active    			= 1;
+				$user->role                 = 'user';
 				$user->save();
 
 				$auth = Auth::attempt(array(

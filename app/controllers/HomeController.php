@@ -29,4 +29,10 @@ class HomeController extends BaseController {
 		}
 	}
 
+	public function facebook()
+	{
+
+		return Share::load('http//localhost:8000', 'My example')->facebook();
+	}
+
 }
