@@ -23,13 +23,13 @@
 
 
 
-
+<!-- 
  @if(Session::has('message'))
  <div class="alert alert-{{ Session::get('message_type') }}">
   <span type="button" class="close" data-dismiss="alert">&times;</span>
   <strong> {{ Session::get('message') }}</strong>
 </div>
-@endif
+@endif -->
 
 @yield('body-content')
 

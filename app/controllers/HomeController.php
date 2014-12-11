@@ -18,15 +18,8 @@ class HomeController extends BaseController {
 	public function home()
 	{
 
-		if ( Auth::check() )
-		{
-			
-			return View::make('index');
-		}
-		else
-		{
-			return View::make('log-in');
-		}
+		return View::make('index');
+		
 	}
 
 	public function facebook()
