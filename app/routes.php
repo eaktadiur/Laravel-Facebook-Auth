@@ -14,13 +14,14 @@
 Route::get('/', array('as' => 'home','uses' => 'HomeController@home'));
 Route::get('/new', array('as' => 'user-create','uses' => 'UserController@getCreate'));
 Route::group(array('before'=> 'csrf'), function(){
-		Route::post('/new', array('as' => 'user-cretae-post','uses' => 'UserController@postCreate'));
-	});
+	Route::post('/new', array('as' => 'user-cretae-post','uses' => 'UserController@postCreate'));
+});
 
 Route::group( array('before'=> 'guest' ), function(){
 	Route::get('/referal/{key}', array('as' => 'referal-user-create','uses' => 'UserController@getCreateReferralUser'));
 	Route::get('fbauth/{auth?}', array('as'=>'facebookAuth', 'uses'=>'UserController@getFacebookLogin') );
 	Route::get('/login', array('as' => 'user-sign-in','uses' => 'UserController@getSignIn'));
+	Route::get('/faq', array('as' => 'user-sign-in','uses' => 'HomeController@getFaq'));
 
 	/*
 	* CSRF protection group
@@ -42,20 +43,20 @@ Route::group( array('before'=> 'guest' ), function(){
 		* CSRF protection group
 	*/
 		
-	Route::group(array('before' => 'role'), function() {
+		Route::group(array('before' => 'role'), function() {
 
-	Route::group(array('before'=> 'csrf'), function(){
-		Route::put('/update/{id}', array('as' => 'put-user-update','uses' => 'UserController@getUpdate'));
-	});
-	Route::get('/users', array('as' => 'user-list','uses' => 'UserController@getIndex'));
-	Route::get('/view/{id}', array('as' => 'user-get-edit','uses' => 'UserController@getEdit'));		
-	Route::get('/destroy/{id}', array('as' => 'delete-user-destroy','uses' => 'UserController@destroy'));
-	});
+			Route::group(array('before'=> 'csrf'), function(){
+				Route::put('/update/{id}', array('as' => 'put-user-update','uses' => 'UserController@getUpdate'));
+			});
+			Route::get('/users', array('as' => 'user-list','uses' => 'UserController@getIndex'));
+			Route::get('/view/{id}', array('as' => 'user-get-edit','uses' => 'UserController@getEdit'));		
+			Route::get('/destroy/{id}', array('as' => 'delete-user-destroy','uses' => 'UserController@destroy'));
+		});
 
 	//Route::get('/', array('as' => 'facebook-share','uses' => 'HomeController@facebook'));
-	Route::get('logout', array('as'=>'logout', 'uses'=>'UserController@getSignOut'));
+		Route::get('logout', array('as'=>'logout', 'uses'=>'UserController@getSignOut'));
 
-});
+	});
 
 
 

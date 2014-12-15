@@ -21,6 +21,9 @@ class HomeController extends BaseController {
 		return View::make('index');
 		
 	}
+	public function getFaq(){
+		return View::make('faq');
+	}
 
 	public function facebook()
 	{
