@@ -25,13 +25,14 @@
     <div class="container">
       <div class="row">
         <div class="logo col-md-4 col-sm-4 col-xs-12">
-          <a class="logo_link" href="index.html"><img src="images/logo-new.png" alt="logo" /></a>
+          <a class="logo_link" href="/"><img src="images/logo-new.png" alt="logo" /></a>
         </div>
 
         <div class="logo col-md-8 col-sm-8 col-xs-12 text-right">
+          <div class="top_fb"><img src="images/top-fb.png" alt="fb" /></div>
           <ul class="sign_box">
-            <li><a class="sign_up" href="#">sign up</a></li>
-            <li><a class="log in" href="#">log in</a></li>
+            <li><a class="" href="#">HOW IT WORKS</a></li>
+            <li><a class="" href="#">LOGIN</a></li>
           </ul>
         </div>
       </div><!-- //row -->

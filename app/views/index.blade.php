@@ -13,8 +13,8 @@
 						<div class="slider_txt_box">
 							<h1 class="slider_title">Sign up now, <br>Refer friends</h1>
 							<h4 class="">And stand a chance to <br>win 1 month FREE subscription?</h4>
-
-							<a class="facebook_link" href="#"><span> Sign up with facebook</span></a>
+<div class='text-center facebook_div'><a class="facebook_link" href="#"><span> Sign up with facebook</span></a></div>
+							
 						</div>
 						<img src="images/slider_01.jpg" />
 					</div>
@@ -100,22 +100,22 @@
 			<div class="filter_box">
 				<div class="col-md-4 col-sm-4 col-xs-12 prod_box">
 					<div class="prod_thumb">
-						<span class="mask"><a href="book_now">Book Now</a></span>
+						<span class="mask"><a href="#">COMMING SOON</a></span>
 						<img src="images/photo_01.jpg" />
 					</div>
 
 					<div class="prod_info">
 						<h3> yoga change <br> studio <span>Jeo chist road</span></h3>
 						<div class="prod_info_right">
-							<div class="prod_stock">10</div>
-							<div class="stock_info">Stock available</div>
+							<div class="prod_stock">8</div>
+							<div class="stock_info">Slots available</div>
 						</div>
 					</div>
 				</div><!--prod_thumb-->
 
 				<div class="col-md-4 col-sm-4 col-xs-12 prod_box">
 					<div class="prod_thumb">
-						<span class="mask"><a href="book_now">Book Now</a></span>
+						<span class="mask"><a href="#">COMMING SOON</a></span>
 						<img src="images/photo_02.jpg" />
 					</div>
 
@@ -123,67 +123,67 @@
 						<h3> ZUMBA CRAZY <br> East <span>Coast Road</span></h3>
 						<div class="prod_info_right">
 							<div class="prod_stock">10</div>
-							<div class="stock_info">Stock available </div>
+							<div class="stock_info">Slots available </div>
 						</div>
 					</div>
 				</div><!--prod_thumb-->
 
 				<div class="col-md-4 col-sm-4 col-xs-12 prod_box">
 					<div class="prod_thumb">
-						<span class="mask"><a href="book_now">Book Now</a></span>
-						<img src="images/photo_04.jpg" />
+						<span class="mask"><a href="#">COMMING SOON</a></span>
+						<img src="images/photo_03.jpg" />
 					</div>
 
 					<div class="prod_info">
 						<h3> SAMPONG  <br> MUAY THAI <span> City Hall</span></h3>
 						<div class="prod_info_right">
-							<div class="prod_stock">10</div>
-							<div class="stock_info">Stock available </div>
+							<div class="prod_stock">4</div>
+							<div class="stock_info">Slots available </div>
 						</div>
 					</div>
 				</div><!--prod_thumb-->
 
 				<div class="col-md-4 col-sm-4 col-xs-12 prod_box">
 					<div class="prod_thumb">
-						<span class="mask"><a href="book_now">Book Now</a></span>
-						<img src="images/photo_03.jpg" />
+						<span class="mask"><a href="#">COMMING SOON</a></span>
+						<img src="images/photo_04.jpg" />
 					</div>
 
 					<div class="prod_info">
 						<h3> POLE MANIA <span>Joo Chiat Road</span></h3>
 						<div class="prod_info_right">
-							<div class="prod_stock">10</div>
-							<div class="stock_info">Stock available </div>
+							<div class="prod_stock">8</div>
+							<div class="stock_info">Slots available </div>
 						</div>
 					</div>
 				</div><!--prod_thumb-->
 
 				<div class="col-md-4 col-sm-4 col-xs-12 prod_box">
 					<div class="prod_thumb">
-						<span class="mask"><a href="book_now">Book Now</a></span>
-						<img src="images/photo_04.jpg" />
+						<span class="mask"><a href="#">COMMING SOON</a></span>
+						<img src="images/photo_08.jpg" />
 					</div>
 
 					<div class="prod_info">
 						<h3> MYSTIC YOGA <span>East Coast Road</span></h3>
 						<div class="prod_info_right">
 							<div class="prod_stock">10</div>
-							<div class="stock_info">Stock available </div>
+							<div class="stock_info">Slots available </div>
 						</div>
 					</div>
 				</div><!--prod_thumb-->
 
 				<div class="col-md-4 col-sm-4 col-xs-12 prod_box">
 					<div class="prod_thumb">
-						<span class="mask"><a href="book_now">Book Now</a></span>
-						<img src="images/photo_02.jpg" />
+						<span class="mask"><a href="#">COMMING SOON</a></span>
+						<img src="images/photo_09.jpg" />
 					</div>
 
 					<div class="prod_info">
 						<h3> OH YOGA! <span>Joo Chiat Road</span></h3>
 						<div class="prod_info_right">
-							<div class="prod_stock">10</div>
-							<div class="stock_info">Stock available </div>
+							<div class="prod_stock">4</div>
+							<div class="stock_info">Slots available </div>
 						</div>
 					</div>
 				</div><!--prod_thumb-->
