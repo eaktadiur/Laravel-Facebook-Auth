@@ -48,7 +48,6 @@ Route::group( array('before'=> 'guest' ), function(){
 			Route::group(array('before'=> 'csrf'), function(){
 				Route::put('/update/{id}', array('as' => 'put-user-update','uses' => 'UserController@getUpdate'));
 			});
-			Route::get('/sign-out', array('as' => 'get-user-sign-out', 'uses' => 'UserController@getSignOut'));
 			Route::get('/users', array('as' => 'user-list','uses' => 'UserController@getIndex'));
 			Route::get('/view/{id}', array('as' => 'user-get-edit','uses' => 'UserController@getEdit'));		
 			Route::get('/destroy/{id}', array('as' => 'delete-user-destroy','uses' => 'UserController@destroy'));
