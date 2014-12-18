@@ -32,7 +32,11 @@
           <div class="top_fb"><img src="images/top-fb.png" alt="fb" /></div>
           <ul class="sign_box">
             <li><a class="" href="#">HOW IT WORKS</a></li>
-            <li><a class="" href="#">LOGIN</a></li>
+            @if(Auth::check())
+            <li><a class="login" href="{{ URL::route('logout') }}">{{ Auth::user()->username }} - Log Out</a></li>
+            @else
+            <li><a href="{{ URL::route('facebookAuth') }}">LOGIN</a></li>
+            @endif
           </ul>
         </div>
       </div><!-- //row -->

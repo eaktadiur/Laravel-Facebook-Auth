@@ -6,7 +6,7 @@ font-family: 'Lato', sans-serif;
 
 .clr{ clear: both; overflow: auto;}
 a:hover,
-a{ text-decoration: none;}
+a{ text-decoration: none; color: #428bca;}
 
 #header{ border-top: 15px #3C68AB solid; padding: 15px 0;}
 .logo_link{ display: block; float: left;}
@@ -21,7 +21,7 @@ body{font-family: 'Lato', sans-serif;}
 .sign_box{ margin: 0; padding: 75px 0 0; list-style: none; text-align: right;}
 .sign_box li{ display: inline-block; padding: 0 1px;}
 .sign_box li a{ display: block; color: #000000; padding: 7px 15px; background: #ffffff;  font-size: 12px; }
-.sign_box li a:hover{ background: #E9E9E9;}
+.sign_box li a:hover{ background: #E9E9E9; color: #428bca;}
 
 /* Slider */
 .slider_wrapper_inner{ font-family: 'Lato', sans-serif;}

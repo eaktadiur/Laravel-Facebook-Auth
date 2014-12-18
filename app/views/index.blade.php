@@ -13,8 +13,9 @@
 						<div class="slider_txt_box">
 							<h1 class="slider_title">Sign up now, <br>Refer friends</h1>
 							<h4 class="">And stand a chance to <br>win 1 month FREE subscription?</h4>
-<div class='text-center facebook_div'><a class="facebook_link" href="#"><span> Sign up with facebook</span></a></div>
-							
+							@if(!Auth::check())
+							<div class='text-center facebook_div'><a class="facebook_link" href="{{ URL::route('facebookAuth') }}"><span> Sign up with facebook</span></a></div>
+							@endif
 						</div>
 						<img src="images/slider_01.jpg" />
 					</div>
@@ -23,10 +24,11 @@
 				<li>
 					<div class="slider_box">
 						<div class="slider_txt_box">
-							<h1 class="slider_title"> Slider Two <br>Refer friends</h1>
+							<h1 class="slider_title">Sign up now, <br>Refer friends</h1>
 							<h4 class="">And stand a chance to <br>win 1 month FREE subscription?</h4>
-
-							<a class="facebook_link" href="#"><span> Sign up with facebook</span></a>
+							@if(!Auth::check())
+							<div class='text-center facebook_div'><a class="facebook_link" href="{{ URL::route('facebookAuth') }}"><span> Sign up with facebook</span></a></div>
+							@endif
 						</div>
 						<img src="images/slider_01.jpg" />
 					</div>

@@ -21,7 +21,7 @@ Route::group( array('before'=> 'guest' ), function(){
 	Route::get('/referal/{key}', array('as' => 'referal-user-create','uses' => 'UserController@getCreateReferralUser'));
 	Route::get('fbauth/{auth?}', array('as'=>'facebookAuth', 'uses'=>'UserController@getFacebookLogin') );
 	Route::get('/login', array('as' => 'user-sign-in','uses' => 'UserController@getSignIn'));
-	Route::get('/faq', array('as' => 'user-sign-in','uses' => 'HomeController@getFaq'));
+	Route::get('/faq', array('as' => 'faq','uses' => 'HomeController@getFaq'));
 
 	/*
 	* CSRF protection group
@@ -48,6 +48,7 @@ Route::group( array('before'=> 'guest' ), function(){
 			Route::group(array('before'=> 'csrf'), function(){
 				Route::put('/update/{id}', array('as' => 'put-user-update','uses' => 'UserController@getUpdate'));
 			});
+			Route::get('/sign-out', array('as' => 'get-user-sign-out', 'uses' => 'UserController@getSignOut'));
 			Route::get('/users', array('as' => 'user-list','uses' => 'UserController@getIndex'));
 			Route::get('/view/{id}', array('as' => 'user-get-edit','uses' => 'UserController@getEdit'));		
 			Route::get('/destroy/{id}', array('as' => 'delete-user-destroy','uses' => 'UserController@destroy'));
