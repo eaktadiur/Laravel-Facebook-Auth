@@ -1,7 +1,14 @@
 @extends('layout.main')
 
 @section('body-content')
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1013698725312382&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <div id="slider_wrapper">
 	<div class="slider_wrapper_inner">
 
@@ -24,7 +31,8 @@
 				<li>
 					<div class="slider_box">
 						<div class="slider_txt_box">
-							<h1 class="slider_title">Sign up now, <br>Refer friends</h1>
+							<h1 class="slider_title">Sign up now, <br>
+								Refer friends</h1>
 							<h4 class="">And stand a chance to <br>win 1 month FREE subscription?</h4>
 							@if(!Auth::check())
 							<div class='text-center facebook_div'><a class="facebook_link" href="{{ URL::route('facebookAuth') }}"><span> Sign up with facebook</span></a></div>
@@ -37,6 +45,8 @@
 		</div>
 	</div><!-- //slider_wrapper_inner -->
 </div><!--slider_wrapper-->
+
+<div class="fb-post" data-href="http://localhost:8000/referal/abgfd4656636" data-width="500"></div>
 
 
 <div id="home_featured_wrapper">
@@ -194,7 +204,9 @@
 		</div><!-- //row -->
 	</div><!-- //container -->
 </div><!--prod_filter_grp-->
-
+@extends('layout.facebookShare')
 @stop
+
+
 
 

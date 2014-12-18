@@ -1,6 +1,9 @@
 @extends('layout.main')
 
 @section('body-content')
+
+<div id="home_featured_wrapper">
+  <div class="container">
 {{ Form::open(array('route' => array('user-cretae-post'), 'files'=>true)) }} 
 
 
@@ -67,11 +70,12 @@
                    <button type="button" class="btn btn-warning">{{ $errors->first('password_again') }}</button>
 
                    @endif
-                   <button type="submit" class="btn btn-success">Submit Button</button>
-                   <button type="reset" class="btn btn-info">Reset Button</button>
+                   <button type="submit" class="btn btn-success">Submit</button>
+                   <button type="reset" class="btn btn-info">Reset</button>
 
                    @if(isset($referal))
-                   {{ Form::hidden('referance_by', $referal ) }}
+                   {{ Form::hidden('cur_url', Request::url() )}}
+                   {{ Form::hidden('referance_by', $referal) }}
                    @endif
                </form>
            </div>
@@ -83,7 +87,8 @@
 </div>
 <!-- /.panel-body -->
 </div>
-
+</div>
+</div>
 {{ Form::close() }}
 
 @stop

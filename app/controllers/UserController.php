@@ -46,7 +46,7 @@ class UserController extends \BaseController {
 		$validation = User::validate(Input::all() );
 		if($validation->fails())
 		{
-			return Redirect::route('user-create')
+			return Redirect::route('referal-user-create', Input::get('referance_by'))
 			->withErrors($validation)			
 			->withInput();
 		}
@@ -74,6 +74,11 @@ class UserController extends \BaseController {
 			$user->role             = 'user';
 
 			$user->save();
+
+			$auth = Auth::attempt(array(
+				'email' => Input::get('email'),
+				'password' => Input::get('password')
+				));
 
 			return Redirect::route('home')->with('message', 'New User created Successfully!')->with('message_type', 'success');
 		}
@@ -151,7 +156,7 @@ class UserController extends \BaseController {
 
 		}
 
-		return Redirect::route('user-sign-in')->with('message', 'Unauthorised sign in or are you activated ?');
+		return Redirect::route('home')->with('message', 'Unauthorised sign in or are you activated ?');
 
 
 	}

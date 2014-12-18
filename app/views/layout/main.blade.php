@@ -19,17 +19,24 @@
 
 
 </head>
-<body>
+<body><div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1013698725312382&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
   <header id="header" class="wrapper">
     <div class="container">
       <div class="row">
         <div class="logo col-md-4 col-sm-4 col-xs-12">
-          <a class="logo_link" href="/"><img src="images/logo-new.png" alt="logo" /></a>
+          <a class="logo_link" href="/"><img src="{{asset('images/logo-new.png')}}" alt="logo" /></a>
         </div>
 
         <div class="logo col-md-8 col-sm-8 col-xs-12 text-right">
-          <div class="top_fb"><img src="images/top-fb.png" alt="fb" /></div>
+          <div class="top_fb"><a href="#" data-toggle="modal" data-target="#facebookShareBox"><img src="{{asset('images/top-fb.png')}}" alt="fb" /></a></div>
           <ul class="sign_box">
             <li><a class="" href="#">HOW IT WORKS</a></li>
             @if(Auth::check())
@@ -42,14 +49,19 @@
       </div><!-- //row -->
     </div><!-- //container -->
   </header>
-
+@if(Session::has('message'))
+   <div class="alert alert-{{ Session::get('message_type') }}">
+    <span type="button" class="close" data-dismiss="alert">&times;</span>
+    <strong> {{ Session::get('message') }}</strong>
+  </div>
+  @endif
   @yield('body-content')
 
   <footer id="footer">
     <div class="container">
       <div class="row">
         <div class="col-md4 col-sm-4 col-xs-12">
-          <a href="index.html"><img src="images/footer_logo.png" alt="" /></a>
+          <a href="index.html"><img src="{{asset('images/footer_logo.png')}}" alt="" /></a>
         </div>
 
         <div class="col-md4 col-sm-4 col-xs-12"> &nbsp; </div>
