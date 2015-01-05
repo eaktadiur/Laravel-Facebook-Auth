@@ -62,7 +62,7 @@
 						<img src="images/featured_1.jpg" />
 					</div>
 
-					<div class="photo_info">
+					<div class="photo_info text-center text-middle1">
 						No commitments, cancel anytime. 
 					</div>
 				</div>
@@ -78,7 +78,7 @@
 						<img src="images/featured_1.jpg" />
 					</div>
 
-					<div class="photo_info">
+					<div class="photo_info text-center text-middle2">
 						Book unfilled slots at any of our participating studios for just $11 per class 
 					</div>
 				</div>
@@ -93,7 +93,7 @@
 						<img src="images/featured_1.jpg" />
 					</div>
 
-					<div class="photo_info">
+					<div class="photo_info text-center text-middle3">
 						Search for unfilled slots in real-time and make instant bookings
 					</div>
 				</div>
@@ -112,7 +112,7 @@
 			<div class="filter_box">
 				<div class="col-md-4 col-sm-4 col-xs-12 prod_box">
 					<div class="prod_thumb">
-						<span class="mask"><a href="#">COMMING SOON</a></span>
+						<span class="mask"><a href="#">COMING SOON</a></span>
 						<img src="images/photo_01.jpg" />
 					</div>
 
@@ -127,7 +127,7 @@
 
 				<div class="col-md-4 col-sm-4 col-xs-12 prod_box">
 					<div class="prod_thumb">
-						<span class="mask"><a href="#">COMMING SOON</a></span>
+						<span class="mask"><a href="#">COMING SOON</a></span>
 						<img src="images/photo_02.jpg" />
 					</div>
 
@@ -142,7 +142,7 @@
 
 				<div class="col-md-4 col-sm-4 col-xs-12 prod_box">
 					<div class="prod_thumb">
-						<span class="mask"><a href="#">COMMING SOON</a></span>
+						<span class="mask"><a href="#">COMING SOON</a></span>
 						<img src="images/photo_03.jpg" />
 					</div>
 
@@ -157,7 +157,7 @@
 
 				<div class="col-md-4 col-sm-4 col-xs-12 prod_box">
 					<div class="prod_thumb">
-						<span class="mask"><a href="#">COMMING SOON</a></span>
+						<span class="mask"><a href="#">COMING SOON</a></span>
 						<img src="images/photo_04.jpg" />
 					</div>
 
@@ -172,7 +172,7 @@
 
 				<div class="col-md-4 col-sm-4 col-xs-12 prod_box">
 					<div class="prod_thumb">
-						<span class="mask"><a href="#">COMMING SOON</a></span>
+						<span class="mask"><a href="#">COMING SOON</a></span>
 						<img src="images/photo_08.jpg" />
 					</div>
 
@@ -187,7 +187,7 @@
 
 				<div class="col-md-4 col-sm-4 col-xs-12 prod_box">
 					<div class="prod_thumb">
-						<span class="mask"><a href="#">COMMING SOON</a></span>
+						<span class="mask"><a href="#">COMING SOON</a></span>
 						<img src="images/photo_09.jpg" />
 					</div>
 

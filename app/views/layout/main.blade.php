@@ -31,18 +31,19 @@
   <header id="header" class="wrapper">
     <div class="container">
       <div class="row">
-        <div class="logo col-md-4 col-sm-4 col-xs-12">
-          <a class="logo_link" href="/"><img src="{{asset('images/logo-new.png')}}" alt="logo" /></a>
+        <div class="logo col-md-5 col-sm-5 col-xs-12">
+          <a class="logo_link" href="/"><img src="{{asset('images/logo.png')}}" alt="logo" /></a>
+          <div class="slogan">Fuss Free Fitness Subscription!</div>
         </div>
 
-        <div class="logo col-md-8 col-sm-8 col-xs-12 text-right">
-          <div class="top_fb"><a href="#" data-toggle="modal" data-target="#facebookShareBox"><img src="{{asset('images/top-fb.png')}}" alt="fb" /></a></div>
+        <div class="logo col-md-7 col-sm-7 col-xs-12 text-right">
+          <!-- <div class="top_fb"><a href="#" data-toggle="modal" data-target="#facebookShareBox"><img src="{{asset('images/top-fb.png')}}" alt="fb" /></a></div> -->
           <ul class="sign_box">
-            <li><a class="" href="#">HOW IT WORKS</a></li>
+            <li><a class="btn btn-default" href="#">SIGN UP</a></li>
             @if(Auth::check())
-            <li><a class="login" href="{{ URL::route('logout') }}">{{ Auth::user()->username }} - Log Out</a></li>
+            <li><a class="login btn btn-default" href="{{ URL::route('logout') }}">{{ Auth::user()->username }} - Log Out</a></li>
             @else
-            <li><a href="{{ URL::route('facebookAuth') }}">LOGIN</a></li>
+            <li><a class="btn btn-default" href="{{ URL::route('facebookAuth') }}">LOGIN</a></li>
             @endif
           </ul>
         </div>

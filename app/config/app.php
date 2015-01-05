@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => 'http://fitmix.sg',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return array(
 	|
 	*/
 
-	'key' => '6t4SOs17BLviETWCNAgJEMjMY1njKWjC',
+	'key' => 'JgbfMcvEcO0Deo7yEka58Uqvm4YUdSJn',
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
